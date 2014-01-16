@@ -5,7 +5,6 @@
 coverage
 InstalledFiles
 lib/bundler/man
-pkg
 rdoc
 spec/reports
 test/tmp
@@ -16,3 +15,27 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# temp stuff
+*.swp
+Gemfile.lock
+
+# and the generated output
+pkg/*
+
+# never include private bins!
+meterpreter/ext_server_pivot.*
