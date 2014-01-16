@@ -38,4 +38,5 @@ Gemfile.lock
 pkg/*
 
 # never include private bins!
+# If you're interested in these, consider http://metasploit.pro
 meterpreter/ext_server_pivot.*
