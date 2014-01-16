@@ -1,18 +1,23 @@
-*.gem
-*.rbc
-.bundle
-.config
-coverage
-InstalledFiles
-lib/bundler/man
-pkg
-rdoc
-spec/reports
-test/tmp
-test/version_tmp
-tmp
+# Compiled Object files
+*.slo
+*.lo
+*.o
 
-# YARD artifacts
-.yardoc
-_yardoc
-doc/
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# temp stuff
+*.swp
+Gemfile.lock
+
+# and the generated output
+pkg/*
+
+# never include private bins!
+meterpreter/ext_server_pivot.*
