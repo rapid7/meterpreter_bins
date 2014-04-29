@@ -36,6 +36,7 @@ Gemfile.lock
 
 # and the generated output
 pkg/*
+meterpreter/*
 
 # never include private bins!
 # If you're interested in these, consider http://metasploit.pro
