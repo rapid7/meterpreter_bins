@@ -1,4 +1,5 @@
 require "bundler/gem_tasks"
+require 'rubygems/builder'
 require "shell"
 
 make_folder = "../meterpreter/"
@@ -66,3 +67,17 @@ end
 task :posix_prep => [:create_dir, :posix_compile, :posix_copy] do
 end
 
+# Override tag_version in bundler-#.#.#/lib/bundler/gem_helper.rb to force signed tags
+module Bundler
+  class GemHelper
+    def tag_version
+      sh "git tag -s -a -m \"Version #{version}\" #{version_tag}"
+      Bundler.ui.confirm "Tagged #{version_tag}."
+      yield if block_given?
+    rescue
+      Bundler.ui.error "Untagging #{version_tag} due to error."
+      sh_with_code "git tag -d #{version_tag}"
+      raise
+    end
+  end
+end
