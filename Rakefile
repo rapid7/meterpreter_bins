@@ -70,7 +70,7 @@ end
 module Bundler
   class GemHelper
     def tag_version
-      sh "git tag -s \"#{version}\" -a -m \"Version #{version}\" #{version_tag}"
+      sh "git tag -m \"Version #{version}\" -s #{version_tag}"
       Bundler.ui.confirm "Tagged #{version_tag}."
       yield if block_given?
     rescue
