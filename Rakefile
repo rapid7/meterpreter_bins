@@ -36,6 +36,10 @@ def copy_files(cnf, target_folder)
   end
 end
 
+task :create_dir do
+  Dir.mkdir(target_folder) unless Dir.exist?(target_folder)
+end
+
 task :win_compile do
   Dir.chdir(make_folder) do
     system('cmd.exe /c make.bat')
@@ -56,9 +60,23 @@ task :posix_copy do
   copy_files(platform_config[:posix], target_folder)
 end
 
-task :win_prep => [:win_compile, :win_copy] do
+task :win_prep => [:create_dir, :win_compile, :win_copy] do
 end
 
-task :posix_prep => [:posix_compile, :posix_copy] do
+task :posix_prep => [:create_dir, :posix_compile, :posix_copy] do
 end
 
+# Override tag_version in bundler-#.#.#/lib/bundler/gem_helper.rb to force signed tags
+module Bundler
+  class GemHelper
+    def tag_version
+      sh "git tag -m \"Version #{version}\" -s #{version_tag}"
+      Bundler.ui.confirm "Tagged #{version_tag}."
+      yield if block_given?
+    rescue
+      Bundler.ui.error "Untagging #{version_tag} due to error."
+      sh_with_code "git tag -d #{version_tag}"
+      raise
+    end
+  end
+end
