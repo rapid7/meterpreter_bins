@@ -6,11 +6,12 @@ require 'meterpreter_bins/version'
 Gem::Specification.new do |spec|
   spec.name          = "meterpreter_bins"
   spec.version       = MeterpreterBinaries::VERSION
-  spec.authors       = ["OJ Reeves"]
-  spec.email         = ["oj_reeves@rapid7.com"]
+  spec.authors       = ["OJ Reeves", "Tod Beardsley", "Chris Doughty"]
+  spec.email         = ["oj@buffered.io", "tod_beardsley@rapid7.com", "chris_doughty@rapid7.com"]
   spec.description   = %q{Compiled binaries for Metasploit's Meterpreter}
-  spec.summary       = %q{This gem contains all the compiled binaries required to make
-                        Meterpreter function. This includes Windows and POSIX binaries.}
+  spec.summary       = %q{This gem contains the compiled binaries required to make
+                        Meterpreter function for Windows 32-bit and 64-bit targets.
+                        Other binaries will be added in future versions.}
   spec.homepage      = "http://www.metasploit.com"
   spec.license       = '3-clause (or "modified") BSD'
 
