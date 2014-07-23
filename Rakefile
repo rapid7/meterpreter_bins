@@ -21,6 +21,14 @@ platform_config = {
     :extensions => [
       "lso", "bin"
     ]
+  },
+  :osx => {
+    :sources => [
+      "../meterpreter/data/meterpreter"
+    ],
+    :extensions => [
+      "dylib"
+    ]
   }
 }
 
@@ -52,6 +60,12 @@ task :posix_compile do
   end
 end
 
+task :osx_compile do
+  Dir.chdir(make_folder) do
+    system('make clean && make osx')
+  end
+end
+
 task :win_copy do
   copy_files(platform_config[:windows], target_folder)
 end
@@ -60,10 +74,17 @@ task :posix_copy do
   copy_files(platform_config[:posix], target_folder)
 end
 
+task :osx_copy do
+  copy_files(platform_config[:osx], target_folder)
+end
+
 task :win_prep => [:create_dir, :win_compile, :win_copy] do
 end
 
 task :posix_prep => [:create_dir, :posix_compile, :posix_copy] do
+end
+
+task :osx_prep => [:create_dir, :osx_compile, :osx_copy] do
 end
 
 # Override tag_version in bundler-#.#.#/lib/bundler/gem_helper.rb to force signed tags
