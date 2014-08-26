@@ -19,7 +19,7 @@ download and install Metasploit itself.
 
 To build the gem:
 
-1. Update the version number in `lib/meterpreter_binaries/version.rb`
+1. Update the version number in `lib/meterpreter_bins/version.rb`
 1. Run `rake win_prep` to build on Windows or `rake posix_prep` to build
    on Linux.
 1. Binaries will be built in the `meterpreter` folder.
