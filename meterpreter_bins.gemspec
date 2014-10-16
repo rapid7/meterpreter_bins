@@ -6,7 +6,7 @@ require 'meterpreter_bins/version'
 Gem::Specification.new do |spec|
   spec.name          = 'meterpreter_bins'
   spec.version       = MeterpreterBinaries::VERSION
-  spec.date          = '2014-08-20'
+  spec.date          = '2014-10-15'
   spec.authors       = ['OJ Reeves', 'Tod Beardsley', 'Chris Doughty']
   spec.email         = ['oj@buffered.io', 'tod_beardsley@rapid7.com', 'chris_doughty@rapid7.com']
   spec.description   = %q{Compiled binaries for Metasploit's Meterpreter}
