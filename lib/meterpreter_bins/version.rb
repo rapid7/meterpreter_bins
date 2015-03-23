@@ -1,6 +1,6 @@
 # -*- coding:binary -*-
 module MeterpreterBinaries
-  VERSION = '0.0.17'
+  VERSION = '0.0.18'
 
   def self.version
     VERSION
