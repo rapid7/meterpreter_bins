@@ -1,0 +1,15 @@
+---
+info:
+  title: Meterpreter Bins
+  description: Meterpreter for Windows and POSIX Meterpreter binaries
+  x-cortex-git:
+    github:
+      alias: r7org
+      repository: rapid7/meterpreter_bins
+  x-cortex-tag: meterpreter-bins
+  x-cortex-type: service
+  x-cortex-domain-parents:
+  - tag: metasploit
+openapi: 3.0.1
+servers:
+- url: "/"
